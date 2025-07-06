@@ -39,7 +39,11 @@
 4. チームメンバーのGitHubユーザー名またはメールアドレスを入力
 6. 「Add [username]」をクリック
 
-(7 今回のみ、git clone )
+(
+   7 今回のみ、先にgit cloneして、
+   https://github.com/mehuu2000/git-teamからPROCEDURE.mdとapp/main.html, style.cssをコピーし、作成する。
+   そして、 git add, commit, pushしておく
+)
 
 ### チームメンバーの作業
 
@@ -60,8 +64,8 @@
 5. 以下のコマンドを実行：
 
 ```bash
-git clone https://github.com/[username]/git-study.git
-cd git-study
+git clone https://github.com/[username]/git-team.git
+cd git-team
 ```
 
 ---
@@ -74,13 +78,10 @@ cd git-study
 
 ```bash
 # mainブランチにいることを確認
-git checkout main
-
-# 最新の状態を取得
-git pull origin main
+git branch
 
 # 新しいブランチを作成して切り替え
-git checkout -b feature/add-member-[your-name]
+git checkout -b feature/[your-name]
 ```
 
 2. ブランチが切り替わったことを確認：
@@ -95,7 +96,8 @@ git branch
 
 ### ファイルを編集してGitに記録する作業
 
-1. main.htmlを編集（例：チームメンバーに自分の名前を追加）
+1. main.htmlを編集
+今回は、チームメンバーの中にpタグでチームメンバーの名前を記入(位置を気にしてね)
 
 2. 変更内容を確認：
 
@@ -112,13 +114,13 @@ git add main.html
 4. コミット（変更を記録）：
 
 ```bash
-git commit -m "チームメンバーに[あなたの名前]を追加"
+git commit -m "チームメンバーに[your-name]を追加"
 ```
 
 5. リモートリポジトリにプッシュ：
 
 ```bash
-git push origin feature/add-member-[your-name]
+git push origin feature/[your-name]
 ```
 
 ---
@@ -132,7 +134,7 @@ git push origin feature/add-member-[your-name]
 3. 「New pull request」ボタンをクリック
 4. 以下を設定：
    - base: `main`
-   - compare: `feature/add-member-[your-name]`
+   - compare: `feature/[your-name]`
 5. 変更内容を確認
 6. 「Create pull request」をクリック
 7. タイトルと説明を入力：
@@ -157,7 +159,7 @@ git push origin feature/add-member-[your-name]
 1. レビューが承認されたことを確認
 2. 「Merge pull request」ボタンをクリック
 3. 「Confirm merge」をクリック
-4. マージ完了後、ブランチを削除（オプション）
+4. マージ完了後、ブランチを削除（消さなくてもいい、オブションです）
 
 ---
 
@@ -178,10 +180,6 @@ git pull origin main
 ```
 
 3. 変更が反映されたことを確認：
-
-```bash
-git log --oneline -5
-```
 
 ---
 
@@ -226,14 +224,3 @@ git log --oneline -5
 git pull origin [branch]
 git push origin [branch]
 ```
-
----
-
-## 練習課題
-
-1. 各自でブランチを作成し、main.htmlに自分の名前を追加
-2. プルリクエストを作成
-3. 他のメンバーのプルリクエストをレビュー
-4. マージ後、全員で最新の状態を取得
-
-これらの手順を繰り返し練習することで、チームでのGit/GitHub開発フローを身につけることができます。
